@@ -30,9 +30,9 @@ SamplePage1.decorators = [
 ]
 
 
-SamplePage1.play = async ({pageElement}) => {
-    console.debug('page element : ' + pageElement)
-    const page = within(pageElement);
+SamplePage1.play = async ({canvasElement}) => {
+    console.debug('canvas element : ' + canvasElement)
+    const page = within(canvasElement);
 
     await userEvent.click(page.getByRole('button'))
 
