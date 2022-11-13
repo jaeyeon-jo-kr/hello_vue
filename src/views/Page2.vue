@@ -1,9 +1,16 @@
 <script setup lang="ts">
-function load_page1() {
-  window.location.href = "/page1"
+import { ref } from 'vue'
+
+import Page1 from './Page1.vue'
+
+const isPage1Loading = ref(false);
+
+function togglePage1(){
+  isPage1Loading.value = !isPage1Loading.value
 }
 </script>
 
 <template>
-    <button @click="load_page1">Load page1</button>
+  <Page1 v-if="isPage1Loading"/>
+  <button v-else @click="togglePage1">Load page1</button>
 </template>

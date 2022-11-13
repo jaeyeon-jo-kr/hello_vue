@@ -3,6 +3,7 @@ import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 import Page1 from "../views/Page1.vue";
+import Page2 from "../views/Page2.vue";
 import router from "../router/index";
 
 import type { Meta, StoryFn } from '@storybook/vue3';
@@ -16,21 +17,23 @@ export default {
 
 const Template: StoryFn<typeof Page1> = (args) => (
     {
-        components : {Page1},
+        components : {Page1, Page2},
         setup() {
             return args;
         },
-        template: '<div><p>hello</p><Page1/></div>'
+        template: '<Page1/>'
     }
 )
 
-export const SamplePage1 = Template.bind({});
-SamplePage1.decorators = [
+export const BeforePage1 = Template.bind({}) 
+
+export const AfterPage1 = Template.bind({});
+AfterPage1.decorators = [
     vueRouter(router.getRoutes())
 ]
 
 
-SamplePage1.play = async ({canvasElement}) => {
+AfterPage1.play = async ({canvasElement}) => {
     console.debug('canvas element : ' + canvasElement)
     const page = within(canvasElement);
 
