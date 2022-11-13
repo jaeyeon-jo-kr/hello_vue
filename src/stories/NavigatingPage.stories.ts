@@ -38,7 +38,7 @@ AfterPage1.play = async ({canvasElement}) => {
     const page = within(canvasElement);
 
     await userEvent.click(page.getByRole('button'))
-
+    
     await expect(
         page.getByRole('button').innerText == 'Load page1'
     )
