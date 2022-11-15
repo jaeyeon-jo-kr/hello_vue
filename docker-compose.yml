@@ -1,10 +1,11 @@
 services:
   app:
-    build: "."
-    command: "pnpm dev --host 0.0.0.0"
+    build: .
+    command: sh -c "pnpm i && pnpm dev --host 0.0.0.0"
     container_name: "hello_vue"
     working_dir: "/hello_vue"
     ports:
       - "5173:5173"
+      - "6006:6006"
     volumes:
       - "/hello_vue"
