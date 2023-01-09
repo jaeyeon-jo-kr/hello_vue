@@ -24,6 +24,7 @@ export const LoggedOut = Template.bind({});
 export const LoggedIn = Template.bind({});
 LoggedIn.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const loginButton = await canvas.getByRole('button', { name: /Log in/i });
+  const loginButton = await canvas.findByRole('button');
+  console.log(loginButton);
   await userEvent.click(loginButton);
 };
