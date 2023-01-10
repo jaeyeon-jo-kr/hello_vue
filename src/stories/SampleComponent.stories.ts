@@ -34,5 +34,4 @@ InputAndChange.play = async ({ canvasElement }) => {
 
   await userEvent.click(button)
 
-
 };
